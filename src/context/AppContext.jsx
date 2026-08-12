@@ -26,8 +26,8 @@ export const AppProvider = ({ children }) => {
   const addBill = (newBill) => {
     const formatted = {
       ...newBill,
-      id: `INV-${1000 + bills.length + 1}`,
-      billNumber: `INV-${1000 + bills.length + 1}`,
+      id: `INC-${1000 + bills.length + 1}`,
+      billNumber: `INC-${1000 + bills.length + 1}`,
       status: 'Completed',
       paymentStatus: 'Paid'
     };

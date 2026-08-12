@@ -104,7 +104,7 @@ export const mockNotifications = [
   { id: 'NOTIF-3', title: 'New bill created', message: 'Bill INV-1030 for LKR 45,000 completed.', time: '4 hours ago', read: true }
 ];
 
-// Generate 30 realistic bills around August 2026
+// Generate 30 realistic income records across Agro Mart, SKY 8, and Wine
 export const mockBills = Array.from({ length: 30 }, (_, index) => {
   const billNum = 1001 + index;
   const day = (index % 10) + 1;
@@ -114,8 +114,8 @@ export const mockBills = Array.from({ length: 30 }, (_, index) => {
   const method = paymentMethods[index % paymentMethods.length];
   
   let subtotal = (index + 1) * 12500 + 5000;
-  let discount = index % 3 === 0 ? 1000 : 0;
-  let total = subtotal - discount;
+  let discount = 0;
+  let total = subtotal;
 
   let payments = [];
   if (method === 'Split') {
@@ -127,11 +127,15 @@ export const mockBills = Array.from({ length: 30 }, (_, index) => {
     payments = [{ method, amount: total }];
   }
 
+  const businesses = ['Agro Mart', 'SKY 8', 'Wine'];
+  const business = businesses[index % businesses.length];
+
   return {
-    id: `INV-${billNum}`,
-    billNumber: `INV-${billNum}`,
+    id: `INC-${billNum}`,
+    billNumber: `INC-${billNum}`,
     date: dateStr,
-    customerName: index % 2 === 0 ? `Lanka Traders Co #${index + 1}` : `Apex Retailers #${index + 1}`,
+    customerName: business,
+    business: business,
     subtotal,
     discount,
     tax: 0,
@@ -142,8 +146,7 @@ export const mockBills = Array.from({ length: 30 }, (_, index) => {
     cardRate: 2.0,
     status: index === 29 ? 'Draft' : 'Completed',
     items: [
-      { id: 'ITM-1', productName: 'Commercial Product Package A', quantity: 2, unitPrice: subtotal * 0.4, total: subtotal * 0.8 },
-      { id: 'ITM-2', productName: 'Support Service & Logistics', quantity: 1, unitPrice: subtotal * 0.2, total: subtotal * 0.2 }
+      { id: 'ITM-1', productName: `${business} Daily Income`, quantity: 1, unitPrice: total, total }
     ]
   };
 });

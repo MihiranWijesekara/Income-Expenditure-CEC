@@ -86,6 +86,7 @@ export const ExpenseCategories = () => {
               <option value="General">General</option>
             </select>
           </div>
+          
 
           <div className="form-group">
             <label className="form-label">Description</label>

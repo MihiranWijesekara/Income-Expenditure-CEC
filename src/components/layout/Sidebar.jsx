@@ -27,7 +27,7 @@ export const Sidebar = ({ collapsed, setCollapsed, mobileOpen, setMobileOpen }) 
 
   const navItems = [
     { title: 'Dashboard', path: '/dashboard', icon: LayoutDashboard, roles: ['Admin', 'Manager', 'Staff', 'Accountant'] },
-    { title: 'Income & Bills', path: '/income/bills', icon: Receipt, roles: ['Admin', 'Manager', 'Staff'] },
+    { title: 'Daily Total Income', path: '/income/bills', icon: Receipt, roles: ['Admin', 'Manager', 'Staff'] },
     { title: 'Expenditures', path: '/expenditure', icon: CreditCard, roles: ['Admin', 'Manager', 'Accountant'] },
     { title: 'Financial Analysis', path: '/analysis/daily', icon: LineChart, roles: ['Admin', 'Manager', 'Accountant'] },
     { title: 'Reports', path: '/reports/summary', icon: FileSpreadsheet, roles: ['Admin', 'Manager', 'Accountant'] },
